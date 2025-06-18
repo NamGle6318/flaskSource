@@ -1,2 +1,46 @@
 Flask
+    - 파이썬 웹 애플리케이션 프레임워크( == Spring)
+    - 경량 프레임워크
+
+django
     - 파이썬 웹 애플리케이션 프레임워크
+    - 모든 기능 제공 프레임워크
+    - 관리자페이지, 시큐리티 기능 제공
+
+flask 명령어
+    - flask --app todo run : 웹 띄우기
+    - flask --app todo run --debug : 웹 띄우기 + debug 모드
+
+WSGI(Web Server Gateway Interface) Server
+    - 웹서버와 웹애플리케이션(py application)간의 인터페이스를 정의하는 표준
+
+
+
+현재 수업간(== django 구조랑 일치) 프로젝트 구조 (flask 자체에서 지정한 프로젝트 구조는 없어서 지맘대로 가능)
+폴더 --- app 생성 (todo)
+          | templates 폴더 : template 파일(html)
+          | static 폴더 : css, js, img
+          | forms.py : DTO 역할
+          | views.py(여러개 = 폴더) : Controller 역할
+          | models.py : Entity 역할
+- config.py : 환경변수 저장
+
+
+블루프린트 : 라우팅 함수의 체계적 관리
+
+flask -- app todo run --debug
+데이터베이스
+    - ORM(클래스 == 테이블)
+    - java에서 ORM 구현 : JPA 개념 => 하이버네이트 구현체
+    - SQLAlchemy 라이브러리 사용 => pip install SQLAlchemy
+
+DB
+-- todo 앱이 SQLAlchemy 사용할 준비
+set FLASK_APP=todo
+flask db init
+
+DB 생성
+flask db migrate
+
+-- table 생성
+flask db upgrade
