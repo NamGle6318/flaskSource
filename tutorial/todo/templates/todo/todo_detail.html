@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block content %}
+<div class="row mb-3">
+  <h1>Todo detail</h1>
+</div>
+
+<div class="mb-3">
+  <label for="title" class="form-label">title</label>
+  <input type="text" class="form-control" id="title" value="{{todo.title}}" />
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">description</label>
+  <textarea class="form-control" name="description" id="description" readonly>{{todo.description}}</textarea>
+</div>
+<div class="mb-3 form-check">
+  <label for="title" class="form-label">completed</label>
+  <input type="checkbox" class="form-check-label" id="completed" {% if todo.completed %} checked {% endif %} />
+</div>
+<div class="mb-3 form-check">
+  <label for="title" class="form-label">important</label>
+  <input type="checkbox" class="form-check-label" id="important" {% if todo.important %} checked {% endif %} />
+</div>
+<a href="" class="btn btn-primary">목록</a>
+{% endblock %}

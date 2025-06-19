@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block content %}
+<div class="row mb-3">
+  <h1>Todo 추가</h1>
+</div>
+<form action="" method="post">
+  <!-- csrf 토큰 포함 -->
+  {% include "errors.html" %} {{form.csrf_token}}
+
+  <div class="mb-3">
+    <label for="title" class="form-label">title</label>
+    <input type="text" class="form-control" id="title" name="title" />
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">description</label>
+    <textarea class="form-control" id="description" name="description"></textarea>
+  </div>
+  <div class="mb-3 form-check">
+    <label for="completed" class="form-label">completed</label>
+    <input type="checkbox" class="form-check-label" id="completed" name="completed" />
+  </div>
+  <div class="mb-3 form-check">
+    <label for="important" class="form-label">important</label>
+    <input type="checkbox" class="form-check-label" id="important" name="important" />
+  </div>
+  <button type="submit" class="btn btn-success">등록</button>
+  <a href="" class="btn btn-primary">목록</a>
+</form>
+{% endblock %}
