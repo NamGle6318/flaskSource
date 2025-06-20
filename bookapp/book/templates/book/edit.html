@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %}
+<div class="row mb-3">
+  <h1>책을 고치자</h1>
+</div>
+
+<form action="" method="post">
+  {{ form.csrf_token }}
+  <div class="mb-3">
+    <label for="code" class="form-label">code</label>
+    <input type="text" class="form-control" id="code" value="{{form.code.data}}" readonly name="code" />
+  </div>
+  <div class="mb-3">
+    <label for="title" class="form-label">title</label>
+    <input type="text" class="form-control" id="title" value="{{form.title.data}}" name="title" />
+  </div>
+  <div class="mb-3 form-check">
+    <label for="price" class="form-label">price</label>
+    <input type="text" class="form-check-label" id="price" value="{{form.price.data}}" name="price" />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">description</label>
+    <textarea class="form-control" name="description" id="description" rows="5">{{form.description.data}}</textarea>
+  </div>
+
+  <button type="submit" class="btn btn-success">수정gogo</button>
+  <a href="{{url_for('book.book_delete', code=form.code.data)}}" class="btn btn-danger">삭제</a>
+  <a href="{{url_for('book.book_list')}}" class="btn btn-primary">목록</a>
+</form>
+{% endblock %}

@@ -45,4 +45,4 @@ flask db migrate
 -- table 생성
 flask db upgrade
 
-지금까지 설치한거 flask-migrate, flask-wtf
+지금까지 설치한거 flask-migrate, flask-wtf, email_validator

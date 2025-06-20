@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block content %}
+<div class="row mb-3">
+  <h1>book details</h1>
+</div>
+
+<div class="mb-3">
+  <label for="code" class="form-label">code</label>
+  <input type="text" class="form-control" id="code" value="{{book.code}}" />
+</div>
+<div class="mb-3">
+  <label for="title" class="form-label">title</label>
+  <input type="text" class="form-control" id="title" value="{{book.title}}" />
+</div>
+<div class="mb-3 form-check">
+  <label for="price" class="form-label">price</label>
+  <input type="text" class="form-check-label" id="price" value="{{book.price}}" />
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">description</label>
+  <textarea class="form-control" name="description" id="description" readonly>{{book.description or ''}}</textarea>
+</div>
+
+<a href="{{url_for('book.book_edit', code=book.code)}}" class="btn btn-success"> 수정</a>
+<a href="" class="btn btn-primary">목록</a>
+
+{% endblock %}

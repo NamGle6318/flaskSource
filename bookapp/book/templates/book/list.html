@@ -1,0 +1,40 @@
+<!-- 상속 후 블럭 지정해서 집어 넣기 -->
+{% extends "base.html" %} {% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">c</th>
+      <th scope="col">t</th>
+      <th scope="col">mola</th>
+      <th scope="col">mola</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for book in books %}
+    <tr>
+      <th scope="row"><a href="{{url_for('book.book_details', code=book.code)}}">{{book.code}}</a></th>
+      <td>{{book.title}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.price}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<nav>
+  <ul class="pagination justify-content-center">
+    {% if books.has_prev %}
+    <li class="page-item"><a href="?page={{books.prev_num}}" class="page-link">Previous</a></li>
+    {% endif %} {% for page_num in books.iter_pages() %} {% if page_num %}
+    <li class="page-item {% if page_num == books.page %} active {% endif %}">
+      <a class="page-link" href="?page={{page_num}}" aria-current="page">{{page_num}}</a>
+    </li>
+    {% else %}
+    <li class="disabled"><a class="page-link" href="javascript:void(0)">...</a></li>
+    {% endif %} {% endfor %} {% if books.has_next %}
+    <li class="page-item"><a class="page-link" href="?page={{books.next_num}}">Next</a></li>
+
+    {% endif %}
+  </ul>
+</nav>
+
+{% endblock %}
